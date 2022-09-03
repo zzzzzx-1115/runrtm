@@ -17,9 +17,10 @@ if __name__ == '__main__':
         files = glob.glob(os.path.join(path, '????_ligand_out*.pdb'))
         for file in files:
             name = os.path.basename(file)
-            kkk = os.path.join(args.output, 'output', name[:4], name[:-3] + 'sdf')
-            print('kkk', kkk)
-            conv.OpenInAndOutFiles(file, kkk)
+            outfile = os.path.join(args.output, 'output', name[:4])
+            if not os.path.exists(outfile):
+                os.makedirs(outfile)
+            conv.OpenInAndOutFiles(file, os.path.join(outfile, name[:-3]+'sdf'))
             conv.SetInAndOutFormats("pdb", "sdf")
             conv.Convert()
             conv.CloseOutFile()
