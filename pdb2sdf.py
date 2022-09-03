@@ -5,7 +5,7 @@ import glob
 
 parser = argparse.ArgumentParser(description='converter')
 parser.add_argument('--file', '-f', required=True)
-
+parser.add_argument('--output', '-o', default='/home')
 
 args = parser.parse_args()
 
@@ -16,8 +16,8 @@ if __name__ == '__main__':
         path = os.path.join(args.file, 'output', 'test_{}'.format(i))
         files = glob.glob(os.path.join(path, '????_ligand_out*.pdb'))
         for file in files:
-            file = os.path.join(path, file)
-            conv.OpenInAndOutFiles(file, file[:-3] + 'sdf')
-            conv.SetInAndOutFormats("pdb","sdf")
+            file1 = os.path.join(path, file)
+            conv.OpenInAndOutFiles(file1, os.path.join(args.output, 'output', file[:4], file[:-3] + 'sdf'))
+            conv.SetInAndOutFormats("pdb", "sdf")
             conv.Convert()
             conv.CloseOutFile()
