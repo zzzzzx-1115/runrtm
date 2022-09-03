@@ -17,6 +17,7 @@ if __name__ == '__main__':
         files = glob.glob(os.path.join(path, '????_ligand_out*.pdb'))
         for file in files:
             name = os.path.basename(file)
+            print(name)
             outfile = os.path.join(args.output, 'output', name[:4])
             if not os.path.exists(outfile):
                 os.makedirs(outfile)
