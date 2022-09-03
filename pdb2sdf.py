@@ -18,6 +18,7 @@ if __name__ == '__main__':
         for file in files:
             print('file', file)
             file1 = os.path.join(path, file)
+            print('file1', file1)
             kkk = os.path.join(args.output, 'output', file[:4], file[:-3] + 'sdf')
             print('kkk', kkk)
             conv.OpenInAndOutFiles(file1, kkk)
