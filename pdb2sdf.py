@@ -5,7 +5,7 @@ import glob
 
 parser = argparse.ArgumentParser(description='converter')
 parser.add_argument('--file', '-f', required=True)
-parser.add_argument('--output', '-o', default='/home')
+parser.add_argument('--output', '-o', default='~')
 
 args = parser.parse_args()
 
