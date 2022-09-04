@@ -2,7 +2,7 @@ from openbabel import openbabel
 import argparse
 import os
 import glob
-import tqdm
+from tqdm import tqdm
 
 parser = argparse.ArgumentParser(description='converter')
 parser.add_argument('--file', '-f', required=True)
