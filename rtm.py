@@ -9,7 +9,7 @@ import glob
 
 parser = argparse.ArgumentParser(description='rtm')
 parser.add_argument('--protein', '-p', default='/home/ubuntu/VINA_screening/example/', help='prefix of protein')
-#protein path: ~/VINA_creening/example/{name}_protein.pdb
+#protein path: ~/VINA_creening/example/{name}/{name}_protein.pdb
 parser.add_argument('--ligand', '-l', default='/home/ubuntu/output/', help='prefix of ligands')
 #ligand path: ~/output/{name}/{name}_ligand_out_{i}.sdf
 parser.add_argument('--name', '-n', required=True, help='name of complex')
@@ -26,7 +26,7 @@ if __name__ == '__main__':
         os.makedirs(args.out)
     outpath = os.path.join(args.out, args.name)
     for ligand in ligands:
-        print(' python ' + args.rtm_loc + ' -p ' + os.path.join(args.protein, '{}_protein.pdb'.format(args.name))
+        print(' python ' + args.rtm_loc + ' -p ' + os.path.join(args.protein, args.name, '{}_protein.pdb'.format(args.name))
               + ' -l ' + ligand + ' -o ' + outpath)
         os.system(' python ' + args.rtm_loc + ' -p ' + os.path.join(args.protein, '{}_protein.pdb'.format(args.name))
               + ' -l ' + ligand + ' -o ' + outpath)
