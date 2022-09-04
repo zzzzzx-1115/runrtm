@@ -22,6 +22,8 @@ args = parser.parse_args()
 
 if __name__ == '__main__':
     ligands = glob.glob(os.path.join(args.ligand, args.name, '*.sdf'))
+    if not os.path.exists(args.out):
+        os.makedirs(args.out)
     outpath = os.path.join(args.out, args.name + '.csv')
     for ligand in ligands:
         os.system('python' + args.rtm_loc + '-p' + os.path.join(args.protein, '{}_protein.pdb'.format(args.name))
