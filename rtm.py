@@ -26,5 +26,5 @@ if __name__ == '__main__':
         os.makedirs(args.out)
     outpath = os.path.join(args.out, args.name + '.csv')
     for ligand in ligands:
-        os.system('python' + args.rtm_loc + '-p' + os.path.join(args.protein, '{}_protein.pdb'.format(args.name))
-              + '-l' + ligand + '-o' + outpath)
+        os.system(' python ' + args.rtm_loc + ' -p ' + os.path.join(args.protein, '{}_protein.pdb'.format(args.name))
+              + ' -l ' + ligand + ' -o ' + outpath)
