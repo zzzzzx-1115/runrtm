@@ -8,7 +8,7 @@ import glob
 
 
 parser = argparse.ArgumentParser(description='rtm')
-parser.add_argument('--protein', '-p', default='/home/ubuntu/VINA_creening/example/', help='prefix of protein')
+parser.add_argument('--protein', '-p', default='/home/ubuntu/VINA_screening/example/', help='prefix of protein')
 #protein path: ~/VINA_creening/example/{name}_protein.pdb
 parser.add_argument('--ligand', '-l', default='/home/ubuntu/output/', help='prefix of ligands')
 #ligand path: ~/output/{name}/{name}_ligand_out_{i}.sdf
