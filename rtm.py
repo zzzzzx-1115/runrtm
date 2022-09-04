@@ -26,8 +26,8 @@ if __name__ == '__main__':
         os.makedirs(args.out)
     outpath = os.path.join(args.out, args.name)
     for ligand in ligands:
-        print(' python ' + args.rtm_loc + ' -p ' + os.path.join(args.protein, args.name, '{}_protein.pdb'.format(args.name))
-              + ' -l ' + ligand + ' -o ' + outpath)
+        # print(' python ' + args.rtm_loc + ' -p ' + os.path.join(args.protein, args.name, '{}_protein.pdb'.format(args.name))
+        #       + ' -l ' + ligand + ' -o ' + outpath)
         os.system(' python ' + args.rtm_loc + ' -p ' + os.path.join(args.protein, '{}_protein.pdb'.format(args.name))
               + ' -l ' + ligand + ' -o ' + outpath)
         break
