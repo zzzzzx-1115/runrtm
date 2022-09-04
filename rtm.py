@@ -30,4 +30,3 @@ if __name__ == '__main__':
         #       + ' -l ' + ligand + ' -o ' + outpath)
         os.system(' python ' + args.rtm_loc + ' -p ' + os.path.join(args.protein, args.name, '{}_protein.pdb'.format(args.name))
               + ' -l ' + ligand + ' -o ' + outpath)
-        break
