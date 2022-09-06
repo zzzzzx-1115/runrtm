@@ -18,7 +18,7 @@ for file in $files;do
   name=${file##*/}
   for idx in `seq 1 10`;do
       /home/ubuntu/VINA_screening/run_vina.py -r ${file}/*.pdb \
-                    -l ${file}/*.sdf \
+                    -l ${file}/*.mol2 \
                     -d "${OUTPUT_PREFIX}/${name}" \
                     -t "${TAG}_${idx}" \
                     --obabel ${OBABEL} \
