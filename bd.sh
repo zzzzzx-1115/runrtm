@@ -11,14 +11,14 @@ OBABEL="~/anaconda3/envs/vina/bin/obabel"
 INPUT_PREFIX="/home/ubuntu/VINA_screening/example/"
 OUTPUT_PREFIX="/home/ubuntu/alg"
 TAG="test"
-
+#/home/ubuntu/VINA_screening/example/6imo/*.sdf
 files="${INPUT_PREFIX}????"
 for file in $files;do
   echo $file
   name=${file##*/}
   for idx in `seq 1 10`;do
-      /home/ubuntu/VINA_screening/run_vina.py -r "${file}/*.pdb" \
-                    -l "${file}/*.sdf" \
+      /home/ubuntu/VINA_screening/run_vina.py -r ${file}/*.pdb \
+                    -l ${file}/*.sdf \
                     -d "${OUTPUT_PREFIX}/${name}" \
                     -t "${TAG}_${idx}" \
                     --obabel ${OBABEL} \
