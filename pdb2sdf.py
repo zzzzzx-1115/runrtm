@@ -25,7 +25,7 @@ if __name__ == '__main__':
                 outfile = os.path.join(args.output, 'sdf_output', name[:4])
                 if not os.path.exists(outfile):
                     os.makedirs(outfile)
-                conv.OpenInAndOutFiles(file, os.path.join(outfile, name[:-3]+'_{}.sdf'.format(count)))
+                conv.OpenInAndOutFiles(file, os.path.join(outfile, name[:4]+'_{}.sdf'.format(count)))
                 conv.SetInAndOutFormats("pdb", "sdf")
                 conv.Convert()
                 conv.CloseOutFile()
