@@ -9,7 +9,7 @@ OBABEL="~/anaconda3/envs/vina/bin/obabel"
 #INPUT_PROTEIN="example/6imo/6imo_protein.pdb"
 #INPUT_LIGAND="example/6imo/6imo_ligand.mol2"
 INPUT_PREFIX="/home/ubuntu/VINA_screening/example/"
-OUTPUT_PREFIX="/home/ubuntu/"
+OUTPUT_PREFIX="/home/ubuntu/alg"
 TAG="test"
 
 files="${INPUT_PREFIX}????"
@@ -17,7 +17,7 @@ for file in $files;do
   echo $file
   name=${file##*/}
   for idx in `seq 1 10`;do
-      ./run_vina.py -r "${file}/*.pdb" \
+      ./home/ubuntu/VINA_screening/run_vina.py -r "${file}/*.pdb" \
                     -l "${file}/*.sdf" \
                     -d "${OUTPUT_PREFIX}/${name}" \
                     -t "${TAG}_${idx}" \
