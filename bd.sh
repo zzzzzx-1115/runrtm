@@ -17,7 +17,7 @@ for file in $files;do
   echo $file
   name=${file##*/}
   for idx in `seq 1 10`;do
-      ./home/ubuntu/VINA_screening/run_vina.py -r "${file}/*.pdb" \
+      /home/ubuntu/VINA_screening/run_vina.py -r "${file}/*.pdb" \
                     -l "${file}/*.sdf" \
                     -d "${OUTPUT_PREFIX}/${name}" \
                     -t "${TAG}_${idx}" \
