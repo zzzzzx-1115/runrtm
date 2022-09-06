@@ -17,7 +17,7 @@ if __name__ == '__main__':
     pdb_files = glob.glob(os.path.join(args.file, '[a-z,0-9][a-z,0-9][a-z,0-9][a-z,0-9]'))
     for pdb_file in pdb_files:
         count = 0
-        all_test = glob.glob(os.path.join(pdb_file, '*'))
+        all_test = glob.glob(os.path.join(pdb_file, 'output', '*'))
         for path in tqdm(all_test):
             files = glob.glob(os.path.join(path, '????_ligand_out*.pdb'))
             for file in files:
