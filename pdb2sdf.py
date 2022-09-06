@@ -12,16 +12,21 @@ args = parser.parse_args()
 
 
 if __name__ == '__main__':
+    #匹配file名下所有的pdb id文件夹
     conv = openbabel.OBConversion()
-    for i in tqdm(range(1, 11)):
-        path = os.path.join(args.file, 'output', 'test_{}'.format(i))
-        files = glob.glob(os.path.join(path, '????_ligand_out*.pdb'))
-        for file in files:
-            name = os.path.basename(file)
-            outfile = os.path.join(args.output, 'output', name[:4])
-            if not os.path.exists(outfile):
-                os.makedirs(outfile)
-            conv.OpenInAndOutFiles(file, os.path.join(outfile, name[:-3]+'sdf'))
-            conv.SetInAndOutFormats("pdb", "sdf")
-            conv.Convert()
-            conv.CloseOutFile()
+    pdb_files = glob.glob(os.path.join(args.file, '[a-z,0-9][a-z,0-9][a-z,0-9][a-z,0-9]'))
+    for pdb_file in pdb_files:
+        count = 0
+        all_test = glob.glob(os.path.join(pdb_file, '*'))
+        for path in tqdm(all_test):
+            files = glob.glob(os.path.join(path, '????_ligand_out*.pdb'))
+            for file in files:
+                name = os.path.basename(file)
+                outfile = os.path.join(args.output, 'sdf_output', name[:4])
+                if not os.path.exists(outfile):
+                    os.makedirs(outfile)
+                conv.OpenInAndOutFiles(file, os.path.join(outfile, name[:-3]+'_{}.sdf'.format(count)))
+                conv.SetInAndOutFormats("pdb", "sdf")
+                conv.Convert()
+                conv.CloseOutFile()
+                count += 1
