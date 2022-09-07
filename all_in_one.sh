@@ -57,6 +57,6 @@ for file in $files; do
 
 ###get top n results
 foos="${RTM_PREFIX}/*.csv"
-for foo in foos; do
+for foo in ${foos}; do
   python ${SORTER} -i ${foo} -o ${RESULT_PREFIX} -n ${NUMBER}
   done
