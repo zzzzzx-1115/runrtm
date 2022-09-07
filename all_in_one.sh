@@ -27,7 +27,7 @@ RESULT_PREFIX="/home/ubuntu/cases"
 
 
 ####run vina
-#files="${INPUT_PREFIX}????"
+files="${INPUT_PREFIX}????"
 #for file in $files;do
 #  #echo $file
 #  name=${file##*/}
