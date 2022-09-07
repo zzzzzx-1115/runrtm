@@ -20,4 +20,7 @@ sorted_df = df.sort_values(by=1, ascending=False)
 
 res = sorted_df[:args.num]
 
+if not os.path.exists(args.output):
+    os.makedirs(args.output)
+
 res.to_csv(os.path.join(args.output, name+'_topn.csv'), header=0, index=0)
