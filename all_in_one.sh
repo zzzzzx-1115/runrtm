@@ -45,16 +45,16 @@ files="${INPUT_PREFIX}????"
 
 ####covert results of vina (.pdb) to .sdf
 
-python ${CONVERTER} -f ${OUTPUT_PREFIX} -o ${SDF_PREFIX}
+#python ${CONVERTER} -f ${OUTPUT_PREFIX} -o ${SDF_PREFIX}
 
 ###compute rtmscores
 
 
-for file in $files; do
-  name=${file##*/}
-  echo $name
-  python ${RTM_PY} -p ${INPUT_PREFIX} -l ${SDF_PREFIX} -n ${name} --rtm_loc ${RTM_ORIGIN} -o ${RTM_PREFIX}
-  done
+#for file in $files; do
+#  name=${file##*/}
+#  echo $name
+#  python ${RTM_PY} -p ${INPUT_PREFIX} -l ${SDF_PREFIX} -n ${name} --rtm_loc ${RTM_ORIGIN} -o ${RTM_PREFIX}
+#  done
 
 
 
