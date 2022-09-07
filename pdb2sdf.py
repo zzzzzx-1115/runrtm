@@ -22,7 +22,7 @@ if __name__ == '__main__':
             files = glob.glob(os.path.join(path, '????_ligand_out*.pdb'))
             for file in files:
                 name = os.path.basename(file)
-                outfile = os.path.join(args.output, 'sdf_output', name[:4])
+                outfile = os.path.join(args.output, name[:4])
                 if not os.path.exists(outfile):
                     os.makedirs(outfile)
                 conv.OpenInAndOutFiles(file, os.path.join(outfile, name[:4]+'_{}.sdf'.format(count)))

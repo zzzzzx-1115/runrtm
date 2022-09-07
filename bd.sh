@@ -14,7 +14,7 @@ TAG="test"
 #/home/ubuntu/VINA_screening/example/6imo/*.sdf
 files="${INPUT_PREFIX}????"
 for file in $files;do
-  echo $file
+#  echo $file
   name=${file##*/}
   for idx in `seq 1 10`;do
       /home/ubuntu/VINA_screening/run_vina.py -r ${file}/*.pdb \
