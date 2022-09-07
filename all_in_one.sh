@@ -49,10 +49,10 @@ python ${CONVERTER} -f ${OUTPUT_PREFIX} -o ${SDF_PREFIX}
 
 ###compute rtmscores
 
-for file in $files; do
-  name=${file##*/}
-  python ${RTM_PY} -p ${file}/*.pdb -l ${SDF_PREFIX} -n ${name} --rtm_loc ${RTM_ORIGIN} -o ${RTM_PREFIX}
-  done
+
+
+python ${RTM_PY} -p ${INPUT_PREFIX} -l ${SDF_PREFIX} -n ${name} --rtm_loc ${RTM_ORIGIN} -o ${RTM_PREFIX}
+
 
 
 ###get top n results
