@@ -31,11 +31,12 @@ if __name__ == '__main__':
         for ligand in ligands:
             os.system(' python ' + args.rtm_loc + ' -p ' + os.path.join(args.protein, args.name,
                                                                         '{}_protein.pdb'.format(args.name))
-                      + ' -l ' + ligand + ' -o ' + outpath + ' -c ' + str(args.cutoff) + ' --gen_pocket ')
+                      + ' -l ' + ligand + ' -o ' + outpath + ' -c ' + str(
+                args.cutoff) + ' --gen_pocket ' + ' -rl ' + args.reflig)
     else:
         for ligand in ligands:
             # print(' python ' + args.rtm_loc + ' -p ' + os.path.join(args.protein, args.name, '{}_protein.pdb'.format(args.name))
             #       + ' -l ' + ligand + ' -o ' + outpath)
             os.system(' python ' + args.rtm_loc + ' -p ' + os.path.join(args.protein, args.name,
                                                                         '{}_protein.pdb'.format(args.name))
-                      + ' -l ' + ligand + ' -o ' + outpath + ' -c ' + str(args.cutoff) + ' -rl ' + args.reflig)
+                      + ' -l ' + ligand + ' -o ' + outpath + ' -c ' + str(args.cutoff))
