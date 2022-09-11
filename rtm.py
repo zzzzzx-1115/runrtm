@@ -29,8 +29,8 @@ if __name__ == '__main__':
     outpath = os.path.join(args.out, args.name)
     if args.gen_pocket:
         for ligand in ligands:
-            # print(' python ' + args.rtm_loc + ' -p ' + os.path.join(args.protein, args.name, '{}_protein.pdb'.format(args.name))
-            #       + ' -l ' + ligand + ' -o ' + outpath)
+            print(' python ' + args.rtm_loc + ' -p ' + os.path.join(args.protein, args.name, '{}_protein.pdb'.format(args.name))
+                  + ' -l ' + ligand + ' -o ' + outpath)
             os.system(' python ' + args.rtm_loc + ' -p ' + os.path.join(args.protein, args.name,
                                                                         '{}_protein.pdb'.format(args.name))
                       + ' -l ' + ligand + ' -o ' + outpath + ' -c ' + args.cutoff + ' --gen_pocket ')
