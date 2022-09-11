@@ -17,9 +17,9 @@ NUMBER="5"
 INPUT_PREFIX="/home/ubuntu/VINA_screening/example/"
 OUTPUT_PREFIX="/home/ubuntu/alg"
 SDF_PREFIX="/home/ubuntu/ligand_sdf"
-RTM_PREFIX="/home/ubuntu/all_scores"
+RTM_PREFIX="/home/ubuntu/all_scores_pocket"
 TAG="test"
-RESULT_PREFIX="/home/ubuntu/ranked_scores"
+RESULT_PREFIX="/home/ubuntu/ranked_scores_pocket"
 
 ####run vina
 files="${INPUT_PREFIX}????"
