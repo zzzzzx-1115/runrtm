@@ -46,7 +46,7 @@ files="${INPUT_PREFIX}????"
 for file in $files; do
   name=${file##*/}
   echo $name
-  python ${RTM_PY} -p ${INPUT_PREFIX} -l ${SDF_PREFIX} -n ${name} --rtm_loc ${RTM_ORIGIN} -o ${RTM_PREFIX} --gen_pocket -rf "${INPUT_PREFIX}/${name}/${name}_ligand.sdf"
+  python ${RTM_PY} -p ${INPUT_PREFIX} -l ${SDF_PREFIX} -n ${name} --rtm_loc ${RTM_ORIGIN} -o ${RTM_PREFIX} --gen_pocket True -rf "${INPUT_PREFIX}/${name}/${name}_ligand.sdf"
 done
 
 ###get top n results
