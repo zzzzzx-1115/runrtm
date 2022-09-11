@@ -1,8 +1,5 @@
 #!/bin/bash
 
-
-
-
 # Set env
 VINA="/home/ubuntu/req/vina"
 VINA_GPU="/home/ubuntu/usr/Vina-GPU/Vina-GPU"
@@ -24,43 +21,36 @@ RTM_PREFIX="/home/ubuntu/all_scores"
 TAG="test"
 RESULT_PREFIX="/home/ubuntu/ranked_scores"
 
-
-
 ####run vina
 files="${INPUT_PREFIX}????"
-for file in $files;do
-  #echo $file
-  name=${file##*/}
-  for idx in `seq 1 10`;do
-      python ${VINA_PY} -r ${file}/*.pdb \
-                    -l ${file}/*.mol2 \
-                    -d "${OUTPUT_PREFIX}/${name}" \
-                    -t "${TAG}_${idx}" \
-                    --obabel ${OBABEL} \
-                    --vina ${VINA} \
-                    --device CPU
-  done
-done
-
+#for file in $files;do
+#  #echo $file
+#  name=${file##*/}
+#  for idx in `seq 1 10`;do
+#      python ${VINA_PY} -r ${file}/*.pdb \
+#                    -l ${file}/*.mol2 \
+#                    -d "${OUTPUT_PREFIX}/${name}" \
+#                    -t "${TAG}_${idx}" \
+#                    --obabel ${OBABEL} \
+#                    --vina ${VINA} \
+#                    --device CPU
+#  done
+#done
 
 ####covert results of vina (.pdb) to .sdf
 
-python ${CONVERTER} -f ${OUTPUT_PREFIX} -o ${SDF_PREFIX}
+#python ${CONVERTER} -f ${OUTPUT_PREFIX} -o ${SDF_PREFIX}
 
 ###compute rtmscores
-
 
 for file in $files; do
   name=${file##*/}
   echo $name
-  python ${RTM_PY} -p ${INPUT_PREFIX} -l ${SDF_PREFIX} -n ${name} --rtm_loc ${RTM_ORIGIN} -o ${RTM_PREFIX}
-  done
-
-
-
+  python ${RTM_PY} -p ${INPUT_PREFIX} -l ${SDF_PREFIX} -n ${name} --rtm_loc ${RTM_ORIGIN} -o ${RTM_PREFIX} --gen_pocket -rf "${INPUT_PREFIX}/${name}/${name}_ligand.sdf"
+done
 
 ###get top n results
 foos="${RTM_PREFIX}/*.csv"
 for foo in ${foos}; do
   python ${SORTER} -i ${foo} -o ${RESULT_PREFIX} -n ${NUMBER}
-  done
+done
