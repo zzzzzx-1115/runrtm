@@ -14,19 +14,19 @@ NUMBER="5"
 # Set input arguments
 
 INPUT_PREFIX="/home/ubuntu/VINA_screening/example"
-OUTPUT_PREFIX="/home/ubuntu/alg"
-SDF_PREFIX="/home/ubuntu/ligand_sdf"
-RTM_PREFIX="/home/ubuntu/all_scores_pocket"
+OUTPUT_PREFIX="/home/ubuntu/alg_apo"
+SDF_PREFIX="/home/ubuntu/ligand_sdf_apo"
+RTM_PREFIX="/home/ubuntu/all_scores_pocket_apo"
 TAG="test"
-RESULT_PREFIX="/home/ubuntu/ranked_scores_pocket"
+RESULT_PREFIX="/home/ubuntu/ranked_scores_pocket_apo"
 
 ####run vina
 files="${INPUT_PREFIX}/????"
-#for file in $files;do
-#  #echo $file
-#  name=${file##*/}
+for file in $files;do
+  echo $file
+  name=${file##*/}
   for idx in `seq 1 10`;do
-      python ${VINA_PY} -r ${file}/*.pdb \
+      python ${VINA_PY} -r ${file}/*_aligned.pdb \
                     -l ${file}/*.mol2 \
                     -d "${OUTPUT_PREFIX}/${name}" \
                     -t "${TAG}_${idx}" \
@@ -34,11 +34,11 @@ files="${INPUT_PREFIX}/????"
                     --vina ${VINA} \
                     --device CPU
   done
-#done
+done
 
 ####covert results of vina (.pdb) to .sdf
 
-#python ${CONVERTER} -f ${OUTPUT_PREFIX} -o ${SDF_PREFIX}
+python ${CONVERTER} -f ${OUTPUT_PREFIX} -o ${SDF_PREFIX}
 
 ###compute rtmscores
 
