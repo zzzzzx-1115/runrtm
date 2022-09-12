@@ -3,7 +3,7 @@
 # Set env
 VINA="/home/ubuntu/req/vina"
 VINA_GPU="/home/ubuntu/usr/Vina-GPU/Vina-GPU"
-OBABEL="~/anaconda3/envs/vina/bin/obabel"
+OBABEL="/home/ubuntu/anaconda3/envs/vina/bin/obabel"
 VINA_PY="/home/ubuntu/VINA_screening/run_vina.py"
 CONVERTER="/home/ubuntu/runrtm/pdb2sdf.py"
 RTM_PY="/home/ubuntu/runrtm/rtm.py"
@@ -12,8 +12,7 @@ SORTER="/home/ubuntu/runrtm/get_highest_scores.py"
 NUMBER="5"
 
 # Set input arguments
-#INPUT_PROTEIN="example/6imo/6imo_protein.pdb"
-#INPUT_LIGAND="example/6imo/6imo_ligand.mol2"
+
 INPUT_PREFIX="/home/ubuntu/VINA_screening/example"
 OUTPUT_PREFIX="/home/ubuntu/alg"
 SDF_PREFIX="/home/ubuntu/ligand_sdf"
@@ -26,15 +25,15 @@ files="${INPUT_PREFIX}/????"
 #for file in $files;do
 #  #echo $file
 #  name=${file##*/}
-#  for idx in `seq 1 10`;do
-#      python ${VINA_PY} -r ${file}/*.pdb \
-#                    -l ${file}/*.mol2 \
-#                    -d "${OUTPUT_PREFIX}/${name}" \
-#                    -t "${TAG}_${idx}" \
-#                    --obabel ${OBABEL} \
-#                    --vina ${VINA} \
-#                    --device CPU
-#  done
+  for idx in `seq 1 10`;do
+      python ${VINA_PY} -r ${file}/*.pdb \
+                    -l ${file}/*.mol2 \
+                    -d "${OUTPUT_PREFIX}/${name}" \
+                    -t "${TAG}_${idx}" \
+                    --obabel ${OBABEL} \
+                    --vina ${VINA} \
+                    --device CPU
+  done
 #done
 
 ####covert results of vina (.pdb) to .sdf

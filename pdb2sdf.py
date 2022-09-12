@@ -14,7 +14,8 @@ args = parser.parse_args()
 if __name__ == '__main__':
     #匹配file名下所有的pdb id文件夹
     conv = openbabel.OBConversion()
-    pdb_files = glob.glob(os.path.join(args.file, '[a-z,0-9][a-z,0-9][a-z,0-9][a-z,0-9]'))
+    #pdb_files = glob.glob(os.path.join(args.file, '[a-z,0-9][a-z,0-9][a-z,0-9][a-z,0-9]'))
+    pdb_files = [os.path.join(args.file, '2e98')]
     for pdb_file in pdb_files:
         count = 0
         all_test = glob.glob(os.path.join(pdb_file, 'output', '*'))
